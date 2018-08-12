@@ -430,3 +430,8 @@ crontab -l
 效果图如下    
 ![](https://images2018.cnblogs.com/blog/1222343/201808/1222343-20180802061420747-1818912766.jpg)
 
+#### 后记
+本项目地址：[https://github.com/varlemon/wechat-iciba-everyday](https://github.com/varlemon/wechat-iciba-everyday)  
+
+
+
