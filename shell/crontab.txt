@@ -1,1 +1,1 @@
-0 6 * * *    python /root/python/iciba/main-v1.0.py
+0 6 * * *    python /root/python/iciba/main-v1.0.py 
