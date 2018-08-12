@@ -22,6 +22,17 @@ class iciba:
     	self.access_token = access_token
     	return self.access_token
 
+    # 获取用户列表
+    def get_user_list(self):
+    	if self.access_token == '':
+    		self.get_access_token(self.appid, self.appsecret)
+    	access_token = self.access_token
+    	url = 'https://api.weixin.qq.com/cgi-bin/user/get?access_token=%s&next_openid=' % str(access_token)
+    	request = urllib2.Request(url)
+    	response = urllib2.urlopen(request)
+        result = response.read()
+        return json.loads(result)
+
     # 发送消息
     def send_msg(self, openid, template_id, iciba_everyday):
     	msg = {
@@ -71,25 +82,36 @@ class iciba:
     			print ' [ERROR] send to %s is error' % openid
 
     # 执行
-    def run(self, openids):
+    def run(self, openids=[]):
+    	if openids == []:
+    		# 如果openids为空，则遍历用户列表
+    		result = self.get_user_list()
+    		openids = result['data']['openid']
+    	# 根据openids对用户进行群发
     	self.send_everyday_words(openids)
 
 
 if __name__ == '__main__':
 	# 微信配置
 	wechat_config = {
-		'appid': 'xxxxx', #此处填写你的appid
-		'appsecret': 'xxxxx', #此处填写你的appsecret
-		'template_id': 'xxxxx' #此处填写你的模板消息ID
+		'appid': 'xxxxx', #(No.1)此处填写你的appid
+		'appsecret': 'xxxxx', #(No.2)此处填写你的appsecret
+		'template_id': 'xxxxx' #(No.3)此处填写你的模板消息ID
 	}
+	
 	# 用户列表
 	openids = [
-		'xxxxx', #此处填写你的微信号（微信公众平台上你的微信号）
+		'xxxxx', #(No.4)此处填写你的微信号（微信公众平台上你的微信号）
 		#'xxxxx', #如果有多个用户也可以
 		#'xxxxx',
 	]
+	
+
 	# 执行
 	icb = iciba(wechat_config)
-	icb.run(openids)
+	
+	# run()方法可以传入openids列表，也可不传参数
+	# 不传参数则对微信公众号的所有用户进行群发
+	icb.run()
 
 
