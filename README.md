@@ -19,7 +19,7 @@
 
 | 参数 | 必选 | 类型 | 说明 |
 |----|----|----|----|
-| date | 否 | string | 格式为：`2013-05-06`；如果`date`为，则默认取当天 |
+| date | 否 | string | 格式为：`2013-05-06`；如果`date`为空，则默认取当天 |
 | type | 否 | string | 可选值为`last`和`next`；以`date`日期为准的，`last`返回前一天的，`next`返回后一天的 |
 
 返回类型：JSON  
@@ -127,8 +127,8 @@ echo get_iciba_everyday();
 ```  
 
 
-本接口（每日一句）官方文档：[http://open.iciba.com/?c=wiki](http://open.iciba.com/?c=wiki)
-参考资料：[金山词霸 · 开发平台](http://open.iciba.com/?c=wiki)
+本接口（每日一句）官方文档：[http://open.iciba.com/?c=wiki](http://open.iciba.com/?c=wiki)  
+参考资料：[金山词霸 · 开发平台](http://open.iciba.com/?c=wiki)  
 
 ## 登录微信公众平台接口测试账号
 
