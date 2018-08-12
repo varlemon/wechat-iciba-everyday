@@ -97,7 +97,6 @@ if __name__ == '__main__':
         #'xxxxx',
     ]
 
-    
     # 执行
     icb = iciba(wechat_config)
 
