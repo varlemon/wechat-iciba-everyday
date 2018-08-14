@@ -82,7 +82,7 @@ get_user_list(){
 # 发送模板消息
 send_msg(){
     url="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=${WECHAT_ACCESS_TOKEN}"
-    msg="{\"url\":${ICIBA_EVERYDAY[3]},\"data\":{\"content\":{\"color\":\"rgb(0,0,205)\",\"value\":${ICIBA_EVERYDAY[0]}},\"note\":{\"value\":${ICIBA_EVERYDAY[1]}},\"translation\":{\"value\":${ICIBA_EVERYDAY[2]}}},\"touser\":\"$1\",\"template_id\":\"${WECHAT_TEMPLATE_ID}\"}"
+    msg="{\"url\":${ICIBA_EVERYDAY[3]},\"data\":{\"content\":{\"color\":\"#0000CD\",\"value\":${ICIBA_EVERYDAY[0]}},\"note\":{\"value\":${ICIBA_EVERYDAY[1]}},\"translation\":{\"value\":${ICIBA_EVERYDAY[2]}}},\"touser\":\"$1\",\"template_id\":\"${WECHAT_TEMPLATE_ID}\"}"
     result=$(curl -H "Content-Type:application/json" -X POST --data "${msg}" ${url})
     errcode=$(echo $result | ${JQ} .errcode)
     if [ "${errcode}" == "0" ]; then
