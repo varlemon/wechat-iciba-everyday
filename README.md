@@ -166,7 +166,7 @@ echo get_iciba_everyday();
 
 **本程序您只需要修改4个地方即可，请看注释**    
 
-本项目提供了`Python2.x`, `Python3.x`, `PHP`等语言的实现，可自行选择合适的程序    
+本项目提供了`Python2.x`, `Python3.x`, `PHP`, `Linux shell`等语言的实现，可自行选择合适的程序    
 
 在项目目录中，`crontab.txt`是Linux的定时任务的书写格式；`main.*`文件是程序的执行入口文件。  
 
